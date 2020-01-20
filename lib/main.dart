@@ -1,25 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
+import 'package:get_it/get_it.dart';
 import 'controllers.dart';
 import 'home.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  GetIt getIt = GetIt.I;
+  getIt.registerSingleton<Counter>(Counter());
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'provider',
-        home: Home(),
-      ),
-      providers: [
-        Provider<Counter>(
-          create: (_) => Counter(),
-        ),
-      ],
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'provider',
+      home: Home(),
     );
   }
 }
