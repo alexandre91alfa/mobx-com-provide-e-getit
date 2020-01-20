@@ -6,6 +6,7 @@ import 'package:providemobx/page.dart';
 
 import 'controllers.dart';
 
+//singleton
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
